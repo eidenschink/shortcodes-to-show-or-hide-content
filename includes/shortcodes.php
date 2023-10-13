@@ -22,14 +22,15 @@
  * @return     string The content to display
  */
 function time_restricted_shortcode( $atts, $content ) {
-	extract( shortcode_atts(
+	$shortcodeAtts = shortcode_atts(
 		array(
 			'show'	=> '', // Retired in favour of 'on' for better consistency.
 			'hide'	=> '', // Retired in favour of 'off' for better consistency.
 			'on'	=> '',
 			'off'	=> '',
 			'else'	=> '',
-		), $atts )
+		), $atts );
+ extract( $shortcodeAtts
 	);
 
 	$showit = 0; // Set some defaults.
@@ -77,7 +78,17 @@ add_shortcode( 'time_restrict', 'time_restricted_shortcode' );
  * @return     string The content to display
  */
 function repeat_time_restricted_shortcode( $atts, $content ) {
-	extract( shortcode_atts(
+	$onday = null;
+ $offday = null;
+ $onmonth = null;
+ $offmonth = null;
+ $ondate = null;
+ $offdate = null;
+ $type = null;
+ $ontime = null;
+ $offtime = null;
+ $todaydate = null;
+ $shortcodeAtts = shortcode_atts(
 		array(
 			'type' => '',
 			'ontime' => '00:00:00',
@@ -89,7 +100,8 @@ function repeat_time_restricted_shortcode( $atts, $content ) {
 			'onmonth' => '',
 			'offmonth' => '',
 			'else'	=> '',
-		), $atts )
+		), $atts );
+ extract( $shortcodeAtts
 	);
 
 	$showit = 0; // Set some defaults.

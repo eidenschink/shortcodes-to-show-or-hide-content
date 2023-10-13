@@ -10,16 +10,16 @@ function replace_shortcodes() {
 	global $wpdb;
 
 	// time-restrict-repeat-* to time_restrict_repeat_*
-	$wpdb->query( "UPDATE $wpdb->posts SET post_content = replace(post_content,'[time-restrict-repeat-','[time_restrict_repeat_')" ); // open tag
-	$wpdb->query( "UPDATE $wpdb->posts SET post_content = replace(post_content,'[/time-restrict-repeat-','[/time_restrict_repeat_')" ); // close tag
+	$wpdb->query( sprintf('UPDATE %s SET post_content = replace(post_content,\'[time-restrict-repeat-\',\'[time_restrict_repeat_\')', $wpdb->posts) ); // open tag
+	$wpdb->query( sprintf('UPDATE %s SET post_content = replace(post_content,\'[/time-restrict-repeat-\',\'[/time_restrict_repeat_\')', $wpdb->posts) ); // close tag
 
 	// time-restrict-repeat to time_restrict_repeat
-	$wpdb->query( "UPDATE $wpdb->posts SET post_content = replace(post_content,'[time-restrict-repeat','[time_restrict_repeat')" ); // open tag
-	$wpdb->query( "UPDATE $wpdb->posts SET post_content = replace(post_content,'[/time-restrict-repeat]','[/time_restrict_repeat]')" ); // close tag
+	$wpdb->query( sprintf('UPDATE %s SET post_content = replace(post_content,\'[time-restrict-repeat\',\'[time_restrict_repeat\')', $wpdb->posts) ); // open tag
+	$wpdb->query( sprintf('UPDATE %s SET post_content = replace(post_content,\'[/time-restrict-repeat]\',\'[/time_restrict_repeat]\')', $wpdb->posts) ); // close tag
 
 	// time-restrict to time_restrict
-	$wpdb->query( "UPDATE $wpdb->posts SET post_content = replace(post_content,'[time-restrict','[time_restrict')" ); // open tag
-	$wpdb->query( "UPDATE $wpdb->posts SET post_content = replace(post_content,'[/time-restrict]','[/time_restrict]')" ); // close tag
+	$wpdb->query( sprintf('UPDATE %s SET post_content = replace(post_content,\'[time-restrict\',\'[time_restrict\')', $wpdb->posts) ); // open tag
+	$wpdb->query( sprintf('UPDATE %s SET post_content = replace(post_content,\'[/time-restrict]\',\'[/time_restrict]\')', $wpdb->posts) ); // close tag
 }
 
 

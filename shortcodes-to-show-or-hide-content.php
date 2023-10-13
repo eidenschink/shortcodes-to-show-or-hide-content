@@ -38,9 +38,11 @@
 if (!defined('SHOWHIDE_PLUGIN_VERSION')) {
 	define('SHOWHIDE_PLUGIN_VERSION', '2.5');
 }
+
 if ( ! defined( 'SHOWHIDE_PLUGIN_DIR' ) ) {
 	define( 'SHOWHIDE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 }
+
 if ( ! defined( 'SHOWHIDE_PLUGIN_URL' ) ) {
 	define( 'SHOWHIDE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
