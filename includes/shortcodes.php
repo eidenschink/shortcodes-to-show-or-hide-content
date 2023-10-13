@@ -49,9 +49,10 @@ function time_restricted_shortcode( $atts, $content ) {
     try {
 	    $time_on = new DateTimeImmutable( $on, wp_timezone() );
     } catch (Exception $exception) {
-        wp_debug_log('[shortcodes-to-show-or-hide-content] ' . $exception->getMessage());
+        WP_DEBUG && error_log('[shortcodes-to-show-or-hide-content] ' . $exception->getMessage());
         return '';
     }
+
 	if ( empty( $on ) || $time_on < $now ) { // If on time isn't set, or has already passed, show the content.
 		$showit = 1;
 	}
@@ -59,9 +60,10 @@ function time_restricted_shortcode( $atts, $content ) {
     try {
 	    $time_off = new DateTimeImmutable( $off, wp_timezone() );
     } catch (Exception $exception) {
-        wp_debug_log('[shortcodes-to-show-or-hide-content] ' . $exception->getMessage());
+        WP_DEBUG && error_log('[shortcodes-to-show-or-hide-content] ' . $exception->getMessage());
         return '';
     }
+
 	if ( empty( $off ) || $time_off > $now ) {  // If off time isn't set, or is in the future, show the content.
 		$hideit = 0;
 	}
