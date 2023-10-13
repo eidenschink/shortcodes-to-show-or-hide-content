@@ -1,0 +1,3 @@
+rector.php export-ignore
+run-rector.sh export-ignore
+deploy.sh export-ignore
